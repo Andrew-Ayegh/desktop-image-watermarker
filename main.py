@@ -1,10 +1,7 @@
 import customtkinter as ctk
 from PIL import Image, ImageFont, ImageDraw
 from customtkinter import filedialog
-import os
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-FONT_PATH = os.path.join(BASE_DIR, 'fonts', 'MONTSERRAT-VARIABLEFONT_WGHT.TTF')
 class App(ctk.CTk):
     def __init__(self) -> None:
         super().__init__()
@@ -22,7 +19,7 @@ class App(ctk.CTk):
         self.personalization_frame.grid(row=0, column=0, pady=(5,0), rowspan=2 )
         
         # ------------------CUSTOMISE WATERMARK FRAME TITLE------------------------#
-        self.title = ctk.CTkLabel(master=self.personalization_frame, text="Customise Watermark", fg_color="gray30", font=('./fonts/MERRIWEATHER-REGULAR.TTF', 20), padx=10, pady=10, corner_radius=10)
+        self.title = ctk.CTkLabel(master=self.personalization_frame, text="Customise Watermark", fg_color="gray30", font=('./MERRIWEATHER-REGULAR.TTF', 20), padx=10, pady=10, corner_radius=10)
         self.title.grid(row=0, column=0, sticky='w', pady=15, padx=15)
         
         # -----------------------THEME SECTION---------------------#
@@ -129,7 +126,7 @@ class App(ctk.CTk):
         # chaneg color to 0, 0, 0, 300 to invoke masking
         # -------creating ImageFont object
         font_size = int(image_width *0.05)
-        font = ImageFont.truetype(font=FONT_PATH, size=font_size)
+        font = ImageFont.truetype(font='./MONTSERRAT-SEMIBOLD.TTF', size=font_size)
         
         # -----creating context for drawing watermark
         draw = ImageDraw.Draw(watermark_canva)
