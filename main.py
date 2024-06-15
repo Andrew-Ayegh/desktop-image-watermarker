@@ -1,7 +1,10 @@
 import customtkinter as ctk
 from PIL import Image, ImageFont, ImageDraw
 from customtkinter import filedialog
+import os
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+FONT_PATH = os.path.join(BASE_DIR, 'fonts', 'MONTSERRAT-VARIABLEFONT_WGHT.TTF')
 class App(ctk.CTk):
     def __init__(self) -> None:
         super().__init__()
@@ -126,7 +129,7 @@ class App(ctk.CTk):
         # chaneg color to 0, 0, 0, 300 to invoke masking
         # -------creating ImageFont object
         font_size = int(image_width *0.05)
-        font = ImageFont.truetype(font='./fonts/MONTSERRAT-VARIABLE-FONT_WEIGHT.ttf', size=font_size)
+        font = ImageFont.truetype(font=FONT_PATH, size=font_size)
         
         # -----creating context for drawing watermark
         draw = ImageDraw.Draw(watermark_canva)
